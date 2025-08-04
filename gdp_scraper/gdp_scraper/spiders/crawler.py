@@ -31,7 +31,6 @@ class CrawlerSpider(scrapy.Spider):
 
     def parse_country_page(self, response):
         item = response.meta['item']
-        # Try to get the official name from the infobox (common format)
         official_name = response.xpath('//table[contains(@class, "infobox")]//th[contains(text(), "Official")]/following-sibling::td//text()').get()
         
         if official_name:
